@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Domestic
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20121201
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="nprlab, nonparametric regression, toolbox, matlab"/>
+<meta name="description" content=""/>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>NPRLab</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen"/>
+
+<link href="./mathscribe/jqmath-0.4.0.css" rel="stylesheet"/>
+<script src="./mathscribe/jquery-1.4.3.min.js" type="text/javascript"></script>
+<script src="./mathscribe/jqmath-etc-0.4.0.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div id="wrapper">
+	<div id="menu-wrapper">
+		<div id="menu" class="container">
+			<ul>
+				<li class="current_page_item"><a href="#intro">Home</a></li>
+				<li><a href="#download">Download</a></li>
+				<li><a href="#about">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="logo" class="container">
+		<h1><a href="#">NPRLab</a></h1>
+		<p>NonParametric Regression Laboratory for MATLAB</p>
+	</div>
+	<div id="page" class="container">
+		<div class="post">
+			<h2 class="title" id="intro"><a href="#">Introduction</a></h2>
+			<div class="entry">
+				<p>NPRLab is a MATLAB toolbox for nonparametric regression. In particular, it implements a variety of "linear estimators". A linear estimator $r_n(x)$ can be written as $$r_n(x) = ∑↙{i=1}↖nl_i(x)Y_i,$$ for each $x$. Defining the vectors $r = (r_n(x_1),...,r_n(x_n))^T$ and $Y = (Y_1,...,Y_n)^T$, one can write these as a matrix-vector product: $$r = LY,$$ with $L$ the smoother matrix and $L_{ij} = l_j(x_i)$.</p>
+				<p>NPRLab is built around and requires the <a href="http://www.esat.kuleuven.be/sista/lssvmlab/">LS-SVMlab toolbox</a> to work. The following linear estimators are currently implemented:</p>
+				<ul>
+					<li>Nadaraya-Watson,</li>
+					<li>Local polynomial regression,</li>
+					<li>Priestley-Chao,</li>
+					<li>Least Squares Support Vector Machines (through the LS-SVMlab toolbox).</li>
+				</ul>
+				<p>
+				Moreover, other linear estimators can easily be added to the toolbox.
+				Data rescaling and bandwidth tuning is done automatically by the software. Bandwidth tuning is done using (i) leave-one-out cross-validation, (ii) generalized cross-validation or (iii) Akaike information criterium corrected (AICC). Finally, the toolbox also features confidence interval estimation by the volume-of-tube formula both in a one-dimensional and multi-dimensional setting (see <a href="http://projecteuclid.org/euclid.aos/1176325631">Sun, J., and Loader, C. R. (1994). Simultaneous confidence bands for linear regression and smoothing. The Annals of Statistics, 1328-1345.</a>). The computation of the multi-dimensional volume-of-tube formula uses multiple cores of the CPU if the Parallel Computing toolbox is installed. The toolbox includes a number of examples that demonstrate the usage.
+				</p>
+			</div>
+		</div>
+		<!-- end #content -->
+		<div id="three-column" class="container">
+			<div id="tbox1">
+			<div class="box-style">
+				<div class="content">
+					<div class="image"><img src="images/nwconf.png" width="324" height="200" alt=""/></div>
+					<h2>One-dimensional kernel regression</h2>
+					<p>Nadaraya-Watson estimate (red) along with a 95% simultaneous confidence interval and the true underlying function $\exp^{-32(X-0.5)^2}$ (green).</p>
+				</div>
+			</div>
+		</div>
+		<div id="tbox2">
+			<div class="box-style">
+				<div class="content">
+					<div class="image"><img src="images/mvnpdflssvm.png" width="324" height="200" alt=""/></div>
+					<h2>Multi-dimensional kernel regression</h2>
+					<p>LS-SVM estimate (red) along with a 95% simultaneous confidence band and the true underlying function (shaded area). The underlying function is a bivariate normal distribution.</p>
+				</div>
+			</div>
+		</div>
+		<div id="tbox3">
+			<div class="box-style">
+				<div class="content">
+					<div class="image"><img src="images/multidimcputime.png" width="324" height="200" alt=""/></div>
+					<h2>Accuracy vs. computation time</h2>
+					<p>The accuracy of the multi-dimensional volume-of-tube approximation is customizable: choose 3-term, 2-term or 1-term approximation for decreasing accuracy and increasing speed. The figure shows the computation time for a dataset of size N = 576.</p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="pagecont" class="container">
+		<div class="post">
+			<h2 class="title" id="download"><a href="#">Download and install</a></h2>
+			<div class="entry">
+				<p>NPRLab is released under the <a href="https://gnu.org/licenses/gpl.txt">GNU GPLv3 license</a>.</p>
+				<div class="button">
+						<a href="download.php?Down=NPRLab.zip">Download</a>
+					</div>
+				<p>Installation steps:</p>
+				<ol>
+					<li>Download LS-SVMlab <a href="http://www.esat.kuleuven.be/sista/lssvmlab/">here</a>, unzip into a folder of choice and add the folder to the MATLAB path.</li>
+					<li>Download and unzip NPRLab into a folder of choice.</li>
+					<li>Run "install.m" within the NPRLab folder to add the required folders to the MATLAB path.</li>
+					<li>Run one of the examples in the "examples" folder. (optional)</li>
+				</ol>
+				<p>A short quickguide to the basic usage is available <a href="NPRLabquickguide.pdf">here</a>. The examples in the "examples" subfolder should also help to get you started. In addition, use the MATLAB 'help' function to get additional information on the functionality.</p>
+				<p>Known issues/bugs:</p>
+				<ul>
+					<li>If dim(X) > 1 and the degree of the local polynomial p > 1, then local polynomial regression gives incorrect results. All other cases work fine.</li>
+				</ul>
+				<p><a><img src="https://gnu.org/graphics/gplv3-88x31.png" alt=""/></a></p>
+			</div>
+		</div>
+		<div class="post">
+			<h2 class="title" id="about"><a href="#">About the author</a></h2>
+			<div class="entry">
+				<p>Pieter Jan Kerstens is a PhD student in economics at KU Leuven KULAK (Belgium). He obtained master degrees in economics and mathematical engineering at KU Leuven (Belgium) and a bachelor degree in computer science at Universiteit Antwerpen (Belgium). Feel free to contact him with any bugs/comments/suggestions you have at
+				<script type="text/javascript">
+				<!--
+				document.write('<a href="mai');
+				document.write('lto');
+				document.write(':&#107;&#101;&#114;&#115;&#116;&#101;&#110;&#115;&#112;&#106;');
+				document.write('@');
+				document.write('&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">');
+				document.write('&#107;&#101;&#114;&#115;&#116;&#101;&#110;&#115;&#112;&#106;');
+				document.write('@');
+				document.write('&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;<\/a>');
+				// -->
+				</script>
+				</p>
+				<p>
+				I'd love to hear how NPRLab is used, so if you use NPRLab then feel free to drop me a note saying where and how you used it. If you use this toolbox in any work then I kindly ask you to give credit by appropriately citing the quickguide or this website where possible.
+				</p>
+				<p>
+				<a href="http://be.linkedin.com/pub/pieter-jan-kerstens/57/6aa/630">
+				<img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_profile_bluetxt_80x15.png" width="80" height="15" alt="View Pieter Jan Kerstens's profile on LinkedIn"/>
+				</a>
+				</p>
+				</div>
+		</div>
+		<div style="clear: both;">&nbsp;</div>
+		<!-- end #content -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>© 2014 Pieter Jan Kerstens. All rights reserved. Design based on the domestic template by <a href="http://www.freecsstemplates.org">FCT</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
